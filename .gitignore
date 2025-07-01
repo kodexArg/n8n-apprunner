@@ -1,0 +1,36 @@
+# Dependencias
+node_modules/
+
+# Archivos de log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Variables de entorno / secretos
+.env
+.env.*
+
+# Datos de ejecución
+pids/
+*.pid
+*.pid.lock
+*.seed
+
+# Salidas de build y cobertura
+dist/
+build/
+coverage/
+
+# Configuraciones de IDE
+.vscode/
+.idea/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Entorno virtual de Python
+.venv/
+
+# Datos locales de n8n
+.n8n/

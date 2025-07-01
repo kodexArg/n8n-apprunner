@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "n8n start",
+    "dev": "N8N_DEV_RELOAD=true n8n start",
     "test": "echo \"No tests\" && exit 0"
   },
   "engines": {
