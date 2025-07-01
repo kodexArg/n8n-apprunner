@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "n8n start",
-    "dev": "N8N_DEV_RELOAD=true n8n start",
+    "dev": "dotenv -- n8n start",
     "test": "echo \"No tests\" && exit 0"
   },
   "engines": {
@@ -14,5 +14,8 @@
   },
   "dependencies": {
     "n8n": "^1.101.0"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^8.0.0"
   }
-} 
+}

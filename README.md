@@ -11,7 +11,7 @@ npm install
 2. Arranca la instancia de n8n en modo desarrollo:
 
 ```bash
-npm start
+npm run dev
 ```
 
 El servicio escuchará en http://localhost:5678
