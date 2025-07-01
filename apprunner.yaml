@@ -1,0 +1,33 @@
+version: 1.0
+runtime: nodejs20
+
+build:
+  commands:
+    pre-build:
+      - npm ci
+    build:
+      - echo "Build step completed."
+
+run:
+  command: npm start
+  network:
+    port: 5678
+  env:
+    - name: N8N_BASIC_AUTH_ACTIVE
+      value: "true"
+    - name: N8N_BASIC_AUTH_USER
+      value: "admin"
+    - name: GENERIC_TIMEZONE
+      value: "America/Argentina/Mendoza"
+    - name: N8N_PORT
+      value: "5678"
+    - name: DB_TYPE
+      value: "postgresdb"
+
+  secrets:
+    - name: N8N_ENCRYPTION_KEY
+      value-from: "arn:aws:secretsmanager:us-east-1:789650504128:secret:kdx-n8n-encryption-key-VucF6Im"
+    - name: N8N_BASIC_AUTH_PASSWORD
+      value-from: "arn:aws:secretsmanager:us-east-1:789650504128:secret:kdx-generic-password-yWLuyp"
+    - name: POSTGRES_SECRET
+      value-from: "arn:aws:secretsmanager:us-east-1:789650504128:secret:rds!db-b2e1ff83-1545-4806-bd37-df9fd2a3de95-SR96y6" 
