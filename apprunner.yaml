@@ -28,7 +28,7 @@ run:
 
   secrets:
     - name: N8N_ENCRYPTION_KEY
-      value-from: "arn:aws:secretsmanager:us-east-1:789650504128:secret:kdx-n8n-encryption-key-VucF6Im"
+      value-from: "arn:aws:secretsmanager:us-east-1:789650504128:secret:kdx-n8n-encryption-key-VucF6I"
     - name: N8N_BASIC_AUTH_PASSWORD
       value-from: "arn:aws:secretsmanager:us-east-1:789650504128:secret:kdx-generic-password-yWLuyp"
     - name: POSTGRES_SECRET
