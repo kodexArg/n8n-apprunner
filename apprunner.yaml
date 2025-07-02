@@ -29,8 +29,7 @@ run:
       value: "database-free-tier.cccpxuiv6n1v.us-east-1.rds.amazonaws.com"
     - name: DB_POSTGRESDB_PORT
       value: "5432"
-    - name: DB_POSTGRESDB_SSL
-      value: "require"
+
     - name: QUEUE_HEALTH_CHECK_ACTIVE
       value: "true"
 
