@@ -29,7 +29,8 @@ run:
       value: "database-free-tier.cccpxuiv6n1v.us-east-1.rds.amazonaws.com"
     - name: DB_POSTGRESDB_PORT
       value: "5432"
-
+    - name: DB_POSTGRESDB_SSL
+      value: "true"
     - name: QUEUE_HEALTH_CHECK_ACTIVE
       value: "true"
 
@@ -39,6 +40,6 @@ run:
     - name: N8N_BASIC_AUTH_PASSWORD
       value-from: "arn:aws:secretsmanager:us-east-1:789650504128:secret:kdx-generic-password-yWLuyp"
     - name: DB_POSTGRESDB_USER
-      value-from: "arn:aws:secretsmanager:us-east-1:789650504128:secret:rds!db-b2e1ff83-1545-4806-bd37-df9fd2a3de95-SR96y6"
+      value-from: "arn:aws:secretsmanager:us-east-1:789650504128:secret:rds!db-b2e1ff83-1545-4806-bd37-df9fd2a3de95-SR96y6:username::"
     - name: DB_POSTGRESDB_PASSWORD
-      value-from: "arn:aws:secretsmanager:us-east-1:789650504128:secret:rds!db-b2e1ff83-1545-4806-bd37-df9fd2a3de95-SR96y6" 
+      value-from: "arn:aws:secretsmanager:us-east-1:789650504128:secret:rds!db-b2e1ff83-1545-4806-bd37-df9fd2a3de95-SR96y6:password::" 
