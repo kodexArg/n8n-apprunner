@@ -24,13 +24,13 @@ run:
     - name: DB_TYPE
       value: "postgresdb"
     - name: DB_POSTGRESDB_DATABASE
-      value: "n8n"
+      value: "postgres"
     - name: DB_POSTGRESDB_HOST
       value: "database-free-tier.cccpxuiv6n1v.us-east-1.rds.amazonaws.com"
     - name: DB_POSTGRESDB_PORT
       value: "5432"
     - name: DB_POSTGRESDB_SSL
-      value: "true"
+      value: "require"
     - name: QUEUE_HEALTH_CHECK_ACTIVE
       value: "true"
 
