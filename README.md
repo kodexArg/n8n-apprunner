@@ -1,5 +1,11 @@
 # n8n-apprunner
 
+**IMPORTANTE**: Configura el _Health check_ de AWS App Runner desde la **consola de AWS App Runner** (no en `apprunner.yaml`). Establece:
+- Protocol: `HTTP`
+- Path: `/healthz`
+
+La variable de entorno `QUEUE_HEALTH_CHECK_ACTIVE=true` expone esta URL sin autenticación. Los health checks **NO** se configuran en el archivo `apprunner.yaml`.
+
 ## Proyecto local
 
 1. Instala las dependencias:

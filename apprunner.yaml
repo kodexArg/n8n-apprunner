@@ -23,6 +23,8 @@ run:
       value: "5678"
     - name: DB_TYPE
       value: "postgresdb"
+    - name: QUEUE_HEALTH_CHECK_ACTIVE
+      value: "true"
 
   secrets:
     - name: N8N_ENCRYPTION_KEY
