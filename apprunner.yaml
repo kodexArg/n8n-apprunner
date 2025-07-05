@@ -81,6 +81,6 @@ run:
     
     # Database secrets
     - name: DB_POSTGRESDB_USER
-      value-from: "arn:aws:secretsmanager:us-east-1:789650504128:secret:rds!db-b2e1ff83-1545-4806-bd37-df9fd2a3de95-SR96y6:username"
+      value-from: "arn:aws:secretsmanager:us-east-1:789650504128:secret:rds!db-b2e1ff83-1545-4806-bd37-df9fd2a3de95-SR96y6:username::"
     - name: DB_POSTGRESDB_PASSWORD
-      value-from: "arn:aws:secretsmanager:us-east-1:789650504128:secret:rds!db-b2e1ff83-1545-4806-bd37-df9fd2a3de95-SR96y6:password" 
+      value-from: "arn:aws:secretsmanager:us-east-1:789650504128:secret:rds!db-b2e1ff83-1545-4806-bd37-df9fd2a3de95-SR96y6:password::"
