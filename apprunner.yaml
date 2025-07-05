@@ -48,6 +48,10 @@ run:
     - name: QUEUE_HEALTH_CHECK_ACTIVE
       value: "true"
     
+    # Task runners configuration  
+    - name: N8N_RUNNERS_ENABLED
+      value: "true"
+    
     # Database configuration
     - name: DB_TYPE
       value: "postgresdb"
