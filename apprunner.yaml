@@ -61,6 +61,10 @@ run:
       value: "database-free-tier.cccpxuiv6n1v.us-east-1.rds.amazonaws.com"
     - name: DB_POSTGRESDB_PORT
       value: "5432"
+    - name: DB_POSTGRESDB_SSL_ENABLED
+      value: "true"
+    - name: DB_POSTGRESDB_SSL_REJECT_UNAUTHORIZED
+      value: "false"
     
     # Logging and observability
     - name: N8N_LOG_LEVEL
