@@ -34,3 +34,20 @@ Thumbs.db
 
 # Datos locales de n8n
 .n8n/
+
+# Cache de npm
+.npm/
+npm-cache/
+
+# Archivos temporales de AppRunner
+.aws-sam/
+.apprunner/
+
+# Locks alternativos
+yarn.lock
+pnpm-lock.yaml
+
+# Archivos de respaldo
+*.bak
+*.backup
+*.tmp

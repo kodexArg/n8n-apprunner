@@ -4,8 +4,9 @@ runtime: nodejs22
 build:
   commands:
     pre-build:
-      - npm install
+      - npm ci --only=production --cache /tmp/.npm --prefer-offline
     build:
+      - npm prune --production
       - echo "Build step completed."
 
 run:
@@ -13,33 +14,69 @@ run:
   network:
     port: 5678
   env:
+    # Autenticación básica
     - name: N8N_BASIC_AUTH_ACTIVE
       value: "true"
     - name: N8N_BASIC_AUTH_USER
       value: "admin"
-    - name: GENERIC_TIMEZONE
-      value: "America/Argentina/Mendoza"
+    
+    # Configuración de despliegue
+    - name: N8N_HOST
+      value: "0.0.0.0"
     - name: N8N_PORT
       value: "5678"
-    # DATABASE CONFIGURATION - DISABLED
-    # - name: DB_TYPE
-    #   value: "postgresdb"
-    # - name: DB_POSTGRESDB_DATABASE
-    #   value: "postgres"
-    # - name: DB_POSTGRESDB_HOST
-    #   value: "database-free-tier.cccpxuiv6n1v.us-east-1.rds.amazonaws.com"
-    # - name: DB_POSTGRESDB_PORT
-    #   value: "5432"
+    - name: N8N_PROTOCOL
+      value: "http"
+    - name: N8N_EDITOR_BASE_URL
+      value: "https://your-apprunner-url.region.awsapprunner.com"
+    
+    # Seguridad de la plataforma
+    - name: N8N_BLOCK_ENV_ACCESS_IN_NODE
+      value: "true"
+    - name: N8N_BLOCK_FILE_ACCESS_TO_N8N_FILES
+      value: "true"
+    - name: N8N_SECURE_COOKIE
+      value: "true"
+    - name: N8N_SAMESITE_COOKIE
+      value: "strict"
+    
+    # Configuración regional
+    - name: GENERIC_TIMEZONE
+      value: "America/Argentina/Mendoza"
+    
+    # Health check
     - name: QUEUE_HEALTH_CHECK_ACTIVE
       value: "true"
+    
+    # Database configuration
+    - name: DB_TYPE
+      value: "postgresdb"
+    - name: DB_POSTGRESDB_DATABASE
+      value: "postgres"
+    - name: DB_POSTGRESDB_HOST
+      value: "database-free-tier.cccpxuiv6n1v.us-east-1.rds.amazonaws.com"
+    - name: DB_POSTGRESDB_PORT
+      value: "5432"
+    
+    # Logging and observability
+    - name: N8N_LOG_LEVEL
+      value: "info"
+    - name: N8N_LOG_OUTPUT
+      value: "console"
+    - name: N8N_LOG_FORMAT
+      value: "json"
+    - name: DB_LOGGING_ENABLED
+      value: "false"
 
   secrets:
+    # Authentication secrets
     - name: N8N_ENCRYPTION_KEY
       value-from: "arn:aws:secretsmanager:us-east-1:789650504128:secret:kdx-n8n-encryption-key-VucF6I"
     - name: N8N_BASIC_AUTH_PASSWORD
       value-from: "arn:aws:secretsmanager:us-east-1:789650504128:secret:kdx-generic-password-yWLuyp"
-    # DATABASE SECRETS - DISABLED
-    # - name: DB_POSTGRESDB_USER
-    #   value-from: "arn:aws:secretsmanager:us-east-1:789650504128:secret:rds!db-b2e1ff83-1545-4806-bd37-df9fd2a3de95-SR96y6:username::"
-    # - name: DB_POSTGRESDB_PASSWORD
-    #   value-from: "arn:aws:secretsmanager:us-east-1:789650504128:secret:rds!db-b2e1ff83-1545-4806-bd37-df9fd2a3de95-SR96y6:password::" 
+    
+    # Database secrets
+    - name: DB_POSTGRESDB_USER
+      value-from: "arn:aws:secretsmanager:us-east-1:789650504128:secret:rds!db-b2e1ff83-1545-4806-bd37-df9fd2a3de95-SR96y6:username"
+    - name: DB_POSTGRESDB_PASSWORD
+      value-from: "arn:aws:secretsmanager:us-east-1:789650504128:secret:rds!db-b2e1ff83-1545-4806-bd37-df9fd2a3de95-SR96y6:password" 
