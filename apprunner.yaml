@@ -4,7 +4,8 @@ runtime: nodejs22
 build:
   commands:
     pre-build:
-      - npm ci --only=production --cache /tmp/.npm --prefer-offline
+      - npm ci --omit=dev --no-audit --no-fund --prefer-offline --cache /tmp/.npm
+
     build:
       - npm prune --production
       - echo "Build step completed."
@@ -20,15 +21,13 @@ run:
     - name: N8N_BASIC_AUTH_USER
       value: "admin"
     
-    # Configuración de despliegue
-    - name: N8N_HOST
-      value: "0.0.0.0"
-    - name: N8N_PORT
-      value: "5678"
-    - name: N8N_PROTOCOL
-      value: "http"
-    - name: N8N_EDITOR_BASE_URL
-      value: "https://your-apprunner-url.region.awsapprunner.com"
+    # Configuración de despliegue - sobreescribe webhook
+    # - name: N8N_HOST
+    #   value: "0.0.0.0"
+    # - name: N8N_PORT
+    #   value: "5678"
+    # - name: N8N_PROTOCOL
+    #   value: "http"
     
     # Seguridad de la plataforma
     - name: N8N_BLOCK_ENV_ACCESS_IN_NODE
@@ -78,7 +77,7 @@ run:
 
   secrets:
     - name: WEBHOOK_URL
-      value-from: "arn:aws:secretsmanager:us-east-1:789650504128:secret:kdx-n8n-apprunner-webhook-url-iwLu0E"
+      value-from: "arn:aws:secretsmanager:us-east-1:789650504128:secret:kdx-n8n-apprunner-url-iwLu0E"
     - name: N8N_ENCRYPTION_KEY
       value-from: "arn:aws:secretsmanager:us-east-1:789650504128:secret:kdx-n8n-encryption-key-VucF6I"
     - name: N8N_BASIC_AUTH_PASSWORD
