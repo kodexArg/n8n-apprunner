@@ -24,8 +24,8 @@ run:
     # Configuración de despliegue - sobreescribe webhook
     - name: N8N_HOST
       value: "737rcw9atw.us-east-1.awsapprunner.com"
-    - name: N8N_PORT
-      value: "5678"
+    #- name: N8N_PORT
+      #value: "5678"
     - name: N8N_PROTOCOL
       value: "https"
     
@@ -45,11 +45,11 @@ run:
     
     # Health check
     - name: QUEUE_HEALTH_CHECK_ACTIVE
-      value: "true"
+      value: "false"
     
     # Task runners configuration  
     - name: N8N_RUNNERS_ENABLED
-      value: "true"
+      value: "false"
     
     # Database configuration
     - name: DB_TYPE
