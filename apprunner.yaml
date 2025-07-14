@@ -77,7 +77,8 @@ run:
 
   secrets:
     - name: WEBHOOK_URL
-      value-from: "arn:aws:secretsmanager:us-east-1:789650504128:secret:kdx-n8n-apprunner-url-iwLu0E"
+      value: "https://737rcw9atw.us-east-1.awsapprunner.com"
+      #value-from: "arn:aws:secretsmanager:us-east-1:789650504128:secret:kdx-n8n-apprunner-url-iwLu0E"
     - name: N8N_ENCRYPTION_KEY
       value-from: "arn:aws:secretsmanager:us-east-1:789650504128:secret:kdx-n8n-encryption-key-VucF6I"
     - name: N8N_BASIC_AUTH_PASSWORD
