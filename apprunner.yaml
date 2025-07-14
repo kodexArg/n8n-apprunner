@@ -35,9 +35,9 @@ run:
     - name: N8N_BLOCK_FILE_ACCESS_TO_N8N_FILES
       value: "true"
     - name: N8N_SECURE_COOKIE
-      value: "true"
+      value: "false"
     - name: N8N_SAMESITE_COOKIE
-      value: "strict"
+      value: "lax"
     
     # Configuración regional
     - name: GENERIC_TIMEZONE
