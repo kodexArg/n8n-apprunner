@@ -23,7 +23,7 @@ run:
     
     # Configuración de despliegue - sobreescribe webhook
     - name: N8N_HOST
-      value: "https://737rcw9atw.us-east-1.awsapprunner.com"
+      value: "737rcw9atw.us-east-1.awsapprunner.com"
     - name: N8N_PORT
       value: "5678"
     - name: N8N_PROTOCOL
