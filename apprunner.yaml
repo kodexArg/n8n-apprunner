@@ -30,6 +30,10 @@ run:
       value: "https"
     - name: WEBHOOK_URL
       value: "https://737rcw9atw.us-east-1.awsapprunner.com"
+    - name: N8N_ENDPOINT_WEBHOOK
+      value: "webhook"
+    - name: N8N_ENDPOINT_WEBHOOK_TEST
+      value: "webhook-test"
     
     # Seguridad de la plataforma
     - name: N8N_BLOCK_ENV_ACCESS_IN_NODE
