@@ -24,11 +24,15 @@ run:
     # Configuración de despliegue - sobreescribe webhook
     - name: N8N_HOST
       value: "737rcw9atw.us-east-1.awsapprunner.com"
-    - name: N8N_PORT
-      value: "5678"
+    #- name: N8N_PORT
+      #value: "5678"
     - name: N8N_PROTOCOL
       value: "https"
     - name: WEBHOOK_URL
+      value: "https://737rcw9atw.us-east-1.awsapprunner.com"
+    - name: N8N_EDITOR_BASE_URL
+      value: "https://737rcw9atw.us-east-1.awsapprunner.com"
+    - name: VUE_APP_URL_BASE_API
       value: "https://737rcw9atw.us-east-1.awsapprunner.com"
     - name: N8N_ENDPOINT_WEBHOOK
       value: "webhook"
@@ -56,6 +60,8 @@ run:
     # Task runners configuration  
     - name: N8N_RUNNERS_ENABLED
       value: "false"
+    - name: N8N_DIAGNOSTICS_ENABLED
+      value: "false"
     
     # Database configuration
     - name: DB_TYPE
@@ -73,7 +79,7 @@ run:
     
     # Logging and observability
     - name: N8N_LOG_LEVEL
-      value: "info"
+      value: "debug"
     - name: N8N_LOG_OUTPUT
       value: "console"
     - name: N8N_LOG_FORMAT
