@@ -24,30 +24,20 @@ run:
     # Configuración de despliegue - sobreescribe webhook
     - name: N8N_HOST
       value: "737rcw9atw.us-east-1.awsapprunner.com"
-    #- name: N8N_PORT
-      #value: "5678"
+    - name: N8N_PORT
+      value: "5678"
     - name: N8N_PROTOCOL
       value: "https"
-    - name: WEBHOOK_URL
-      value: "https://737rcw9atw.us-east-1.awsapprunner.com"
-    - name: N8N_EDITOR_BASE_URL
-      value: "https://737rcw9atw.us-east-1.awsapprunner.com"
-    - name: VUE_APP_URL_BASE_API
-      value: "https://737rcw9atw.us-east-1.awsapprunner.com"
-    - name: N8N_ENDPOINT_WEBHOOK
-      value: "webhook"
-    - name: N8N_ENDPOINT_WEBHOOK_TEST
-      value: "webhook-test"
-    
+      
     # Seguridad de la plataforma
     - name: N8N_BLOCK_ENV_ACCESS_IN_NODE
       value: "true"
     - name: N8N_BLOCK_FILE_ACCESS_TO_N8N_FILES
       value: "true"
     - name: N8N_SECURE_COOKIE
-      value: "false"
+      value: "true"
     - name: N8N_SAMESITE_COOKIE
-      value: "lax"
+      value: "stric"
     
     # Configuración regional
     - name: GENERIC_TIMEZONE
@@ -88,8 +78,8 @@ run:
       value: "false"
 
   secrets:
-    #- name: WEBHOOK_URL
-      #value-from: "arn:aws:secretsmanager:us-east-1:789650504128:secret:kdx-n8n-apprunner-url-iwLu0E"
+    - name: WEBHOOK_URL
+      value-from: "arn:aws:secretsmanager:us-east-1:789650504128:secret:kdx-n8n-apprunner-url-iwLu0E"
     - name: N8N_ENCRYPTION_KEY
       value-from: "arn:aws:secretsmanager:us-east-1:789650504128:secret:kdx-n8n-encryption-key-VucF6I"
     - name: N8N_BASIC_AUTH_PASSWORD
