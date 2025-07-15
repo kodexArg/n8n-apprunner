@@ -23,11 +23,13 @@ run:
     
     # Configuración de despliegue - sobreescribe webhook
     - name: N8N_HOST
-      value: "737rcw9atw.us-east-1.awsapprunner.com"
+      value: "0.0.0.0"
     - name: N8N_PORT
       value: "5678"
     - name: N8N_PROTOCOL
-      value: "https"
+      value: "http"
+    - name: NODE_ENV
+      value: "production"
       
     # Seguridad de la plataforma
     - name: N8N_BLOCK_ENV_ACCESS_IN_NODE
@@ -45,7 +47,7 @@ run:
     
     # Health check
     - name: QUEUE_HEALTH_CHECK_ACTIVE
-      value: "false"
+      value: "true"
     
     # Task runners configuration  
     - name: N8N_RUNNERS_ENABLED
@@ -69,7 +71,7 @@ run:
     
     # Logging and observability
     - name: N8N_LOG_LEVEL
-      value: "debug"
+      value: "info"
     - name: N8N_LOG_OUTPUT
       value: "console"
     - name: N8N_LOG_FORMAT
