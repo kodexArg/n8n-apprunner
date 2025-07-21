@@ -28,6 +28,8 @@ run:
       value: "5678"
     - name: N8N_PROTOCOL
       value: "http"
+    - name: WEBHOOK_URL
+      value: "https://737rcw9atw.us-east-1.awsapprunner.com"
     - name: NODE_ENV
       value: "production"
       
